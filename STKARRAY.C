@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<conio.h>
+#define MAX 5
+void push(int[],int);
+void pop(int[]);
+void disp(int[]);
+int top=-1;
+//main
+void main()
+{
+int stk[MAX],ch,item;
+clrscr();
+do{
+printf("\n 1.PUSH \n 2.POP \n 3.DISPLAY \n 4.EXIT \n Enter your choice:");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:
+ printf("Enter item:");
+ scanf("%d",&item);
+ push(stk,item);
+ break;
+case 2:
+ pop(stk);
+ break;
+case 3:
+ disp(stk);
+ break;
+case 4:
+ exit(0);
+defult:
+ printf("Invalied choice");
+}
+}
+while(ch!=4);
+getch();
+}
+//push
+void push(int stk[MAX],int item)
+{
+if (top==MAX-1)
+{
+printf("overflow");
+return;
+}
+top++;
+stk[top]=item;
+printf("item pushed");
+}
+//pop
+void pop(int stk[MAX])
+{
+if(top==-1)
+{
+printf("Underflow");
+return;
+}
+printf("item popped %d",stk[top]);
+top--;
+}
+//disp
+void disp(int stk[MAX])
+{
+int i;
+if (top==-1)
+printf("stack empty");
+else
+{
+for (i=top;i>=0;i--)
+printf("\n %d",stk[i]);
+}
+}

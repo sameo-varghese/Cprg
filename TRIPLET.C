@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a[10][10],b[10][3],i,j,t=0,r,c,k;
+clrscr();
+printf("Enter number of rows and columns:");
+scanf("%d%d",&r,&c);
+printf("Enter the elements:");
+for(i=0;i<r;i++)
+   {
+    for(j=0;j<c;j++)
+       {
+	scanf("%d",&a[i][j]);
+	if(a[i][j]!=0)
+	t++;
+	}
+     }
+printf("The original matrix is:");
+for(i=0;i<r;i++)
+   {
+    printf("\n");
+    for(j=0;j<c;j++)
+       {
+	printf("%d  ",a[i][j]);
+       }
+    }
+//converting to triplet form
+b[0][0]=r;
+b[0][1]=c;
+b[0][2]=t;
+//searching original matrix for non-0 elememts
+for(k=1,i=0;i<r;i++)
+{
+for (j=0;j<c;j++)
+{
+if(a[i][j]!=0)
+{
+b[k][0]=i;
+b[k][1]=j;
+b[k][2]=a[i][j];
+k++;
+}
+}
+}
+//printing triplet form
+for (i=0;i<=t;i++)
+{
+printf("\n");
+for(j=0;j<3;j++)
+{
+printf("%d",b[i][j]);
+}
+}
+getch();
+}

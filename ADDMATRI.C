@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<conio.h>
+void read(int[10][10],int,int) ;
+void disp(int[10][10],int,int);
+void add(int[10][10],int[10][10],int[10][10],int,int);
+void main()
+{
+int a[10][10],b[10][10],c[10],r1,c1,r2,c2,i,j;
+clrscr();
+printf("Enter row and column of first matrix:");
+scanf("%d%d",&r1,&c1);
+printf("Enter row and column of second matrix:");
+scanf("%d%d",&r2,&c2);
+if(r1==r2&&c1==c2)
+{
+printf("\nEnter elements of first array:");
+read(a,r1,c1);
+printf("\nEnter elements of second. array:");
+read(b,r2,c2);
+printf("1st array:\n") ;
+disp(a,r1,c1);
+printf("2nd array:\n");
+disp(b,r2,c2);
+printf("\nMatrix after addition:\n");
+add(a,b,c,r1,c1);
+disp(c,r1,c1);
+}
+else
+printf("Addition not possible");
+getch();
+}
+void read(int z[10][10],int r,int c )
+{
+int i,j;
+for(i=0;i<r;i++)
+{
+for(j=0;j<c;j++)
+{
+scanf("%d",&z[i][j]);
+}
+}
+}
+void disp(int z[10][10],int r,int c)
+{
+int i,j;
+for(i=0;i<r;i++)
+{
+for(j=0;j<c;j++)
+{
+printf("%d  ",z[i][j]);
+}
+printf("\n");
+}
+}
+void add(int a[10][10],int b[10][10], int z[10][10],int r,int c)
+{
+int i,j;
+for(i=0;i<r;i++)
+{
+for(j=0;j<c;j++)
+{
+z[i][j]=a[i][j]+b[i][j];
+}
+}
+}
+
